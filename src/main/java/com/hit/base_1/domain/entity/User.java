@@ -28,9 +28,4 @@ public class User extends AbstractAuditingEntity {
     @NotBlank(message = UserMessageConstant.EXCEPTION_GENERAL_REQUIRED)
     private String password;
 
-    @NotBlank(message = UserMessageConstant.EXCEPTION_GENERAL_REQUIRED)
-    private String fullName;
-
-    private String avatar;
-
 }

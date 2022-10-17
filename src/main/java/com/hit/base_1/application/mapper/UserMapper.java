@@ -12,15 +12,13 @@ public interface UserMapper {
 
     @Mappings({
             @Mapping(target = "username", source = "userDTO.username"),
-            @Mapping(target = "password", source = "userDTO.password"),
-            @Mapping(target = "fullName", source = "userDTO.fullName")
+            @Mapping(target = "password", source = "userDTO.password")
     })
     CreateUserDataInput userDTOToCreateUserDataInput(UserDTO userDTO);
 
     @Mappings({
             @Mapping(target = "username", source = "input.username"),
-            @Mapping(target = "password", source = "input.password"),
-            @Mapping(target = "fullName", source = "input.fullName")
+            @Mapping(target = "password", source = "input.password")
     })
     User createUserDataInputToUser(CreateUserDataInput input);
 

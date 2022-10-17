@@ -48,7 +48,5 @@ public class AbstractAuditingEntity implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstant.DATE_FORMAT_YYYYMMDDHHMM)
     private String lastModifiedDate;
 
-    @JsonProperty("status")
-    private Boolean status;
 
 }
