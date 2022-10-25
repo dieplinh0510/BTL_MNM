@@ -8,10 +8,10 @@ import com.hit.base_1.application.output.GetUserDataOutput;
 
 public interface UserService {
 
-    GetListUserDataOutput getAllUser(GetAllUserDataInput input);
+  GetListUserDataOutput getAllUser(GetAllUserDataInput input);
 
-    GetUserDataOutput getUserById(GetUserByIdDataInput input);
+  GetUserDataOutput getUserById(GetUserByIdDataInput input);
 
-    GetUserDataOutput creatUser(CreateUserDataInput input);
+  GetUserDataOutput creatUser(CreateUserDataInput input);
 
 }
