@@ -14,7 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 public class GetListUserDataOutput {
 
-    private List<User> data;
-    private String message;
+  private List<User> data;
+
+  private String message;
 
 }

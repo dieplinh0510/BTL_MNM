@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class DateTimeUtil {
-
   private DateTimeUtil() {
   }
 
@@ -16,14 +15,6 @@ public class DateTimeUtil {
       return localDate.format(formatter);
     }
     return null;
-  }
-
-  public static boolean isStartTimeSmallOrEqualEndTime(LocalDate startTime, LocalDate endTime) {
-    return startTime.isBefore(endTime) || startTime.equals(endTime);
-  }
-
-  public static boolean isStartTimeSmallEndTime(LocalDate startTime, LocalDate endTime) {
-    return startTime.isBefore(endTime);
   }
 
   public static LocalDate convertStringToLocalDate(String date, String format) {

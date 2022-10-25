@@ -17,7 +17,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = TableNameConstant.TABLE_MANAGER)
 public class ManagerStudentHistory extends AbstractAuditingEntity {
-    private String studentId;
-    private String subjectId;
-    private boolean flag;
+
+  private String studentId;
+
+  private String subjectId;
+
+  private boolean flag;
+
 }
