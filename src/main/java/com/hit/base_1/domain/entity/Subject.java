@@ -10,7 +10,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Setter
 @Getter
@@ -19,15 +18,23 @@ import java.util.Set;
 @Entity
 @Table(name = TableNameConstant.TABLE_SUBJECT)
 public class Subject extends AbstractAuditingEntity {
-    private String name;
-    private String numberOfUnit;
-    private String start;
-    private String end;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "subject")
-    @JsonIgnore
-    private List<Date> dates;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "subject")
+  @JsonIgnore
+  private List<StudentSubject> studentSubjects;
 
-    @OneToMany(mappedBy = "subject")
-    Set<StudentSubject> studentSubjects;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "subject")
+  @JsonIgnore
+  private List<Schedule> schedules;
+
+  private String name;
+
+  private String numberOfUnit;
+
+  private Long startTime;
+
+  private Long endTime;
+
+  private Double percents;
+
 }

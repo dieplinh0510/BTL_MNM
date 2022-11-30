@@ -1,6 +1,7 @@
 package com.hit.base_1.domain.entity;
 
 import com.hit.base_1.application.constants.TableNameConstant;
+import com.hit.base_1.domain.dto.ManagerStudentHistoryDto;
 import com.hit.base_1.domain.entity.base.AbstractAuditingEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,4 +25,9 @@ public class ManagerStudentHistory extends AbstractAuditingEntity {
 
   private boolean flag;
 
+  public ManagerStudentHistory(ManagerStudentHistoryDto dto) {
+    this.studentId = dto.getStudentId();
+    this.subjectId = dto.getSubjectId();
+    this.flag = dto.isFlag();
+  }
 }

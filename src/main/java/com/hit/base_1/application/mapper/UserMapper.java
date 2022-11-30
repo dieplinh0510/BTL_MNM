@@ -10,18 +10,16 @@ import org.mapstruct.Mappings;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    @Mappings({
-            @Mapping(target = "username", source = "userDTO.username"),
-            @Mapping(target = "password", source = "userDTO.password")
-    })
-    CreateUserDataInput userDTOToCreateUserDataInput(UserDTO userDTO);
+  @Mappings({
+      @Mapping(target = "username", source = "userDTO.username"),
+      @Mapping(target = "password", source = "userDTO.password")
+  })
+  CreateUserDataInput userDTOToCreateUserDataInput(UserDTO userDTO);
 
-    @Mappings({
-            @Mapping(target = "username", source = "input.username"),
-            @Mapping(target = "password", source = "input.password")
-    })
-    User createUserDataInputToUser(CreateUserDataInput input);
-
-
+  @Mappings({
+      @Mapping(target = "username", source = "input.username"),
+      @Mapping(target = "password", source = "input.password")
+  })
+  User createUserDataInputToUser(CreateUserDataInput input);
 
 }
