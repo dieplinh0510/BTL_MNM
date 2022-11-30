@@ -15,4 +15,28 @@ public class UrlConstant {
     public static final String CREATE_USER = PREFIX;
   }
 
+  public static final class Auth {
+    private Auth() {
+    }
+
+    private static final String PREFIX = "/auth";
+    public static final String LOGIN = PREFIX + "/login";
+  }
+
+  public static final class Subject {
+    private Subject() {
+    }
+
+    private static final String PREFIX = "/subjects";
+    public static final String LIST = PREFIX;
+  }
+
+  public static final class Log {
+    private Log() {
+    }
+
+    private static final String PREFIX = "/logs";
+    public static final String SAVE = PREFIX;
+  }
+
 }

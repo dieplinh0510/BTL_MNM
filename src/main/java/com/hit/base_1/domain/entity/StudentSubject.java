@@ -1,7 +1,7 @@
 package com.hit.base_1.domain.entity;
 
 import com.hit.base_1.application.constants.TableNameConstant;
-import com.hit.base_1.domain.entity.base.StudentSubjectKey;
+import com.hit.base_1.domain.entity.base.AbstractAuditingEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,20 +15,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = TableNameConstant.TABLE_STUDENT_SUBJECT)
-public class StudentSubject  {
-    @EmbeddedId
-    StudentSubjectKey id;
+public class StudentSubject extends AbstractAuditingEntity {
 
-    private int numberOfStudy;
+    private Integer numberOfStudy;
+
     private boolean status;
 
-    @ManyToOne
-    @MapsId("studentId")
-    @JoinColumn(name = "studentId")
-    Student student;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Student student;
 
-    @ManyToOne
-    @MapsId("subjectId")
-    @JoinColumn(name = "subjectId")
-    Subject subject;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Subject subject;
+
 }

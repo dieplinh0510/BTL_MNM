@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetAuthenticationParameter {
+public class AuthenticationRequest {
 
     @NotBlank(message = UserMessageConstant.INVALID_GENERAL_NOT_BLANK)
     private String username;
