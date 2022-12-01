@@ -16,21 +16,22 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = TableNameConstant.TABLE_SCHEDULE)
-public class Schedule extends AbstractAuditingEntity {
+@Table(name = TableNameConstant.TABLE_SCHEDULE_DETAIL)
+public class ScheduleDetail extends AbstractAuditingEntity {
 
   @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-  private Subject subject;
+  private Schedule schedule;
 
-  @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-  private Date date;
+  private String lesson; // tiết học
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "schedule")
+  private String form; // Hình thức
+
+  private String timeDetail;
+
+  private Integer week;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "scheduleDetail")
   @JsonIgnore
-  private List<ScheduleDetail> scheduleDetails;
-
-  private String address;
-
-  private String room;
+  private List<Date> dates;
 
 }

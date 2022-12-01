@@ -9,5 +9,6 @@ public class TableNameConstant {
     public static final String TABLE_STUDENT_SUBJECT = "students_subjects";
     public static final String TABLE_MANAGER = "managers";
     public static final String TABLE_SCHEDULE = "schedules";
+    public static final String TABLE_SCHEDULE_DETAIL = "schedule_detail";
 
 }

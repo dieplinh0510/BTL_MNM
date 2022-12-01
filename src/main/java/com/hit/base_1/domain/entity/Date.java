@@ -25,4 +25,7 @@ public class Date extends AbstractAuditingEntity {
   @JsonIgnore
   private List<Schedule> schedules;
 
+  @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+  private ScheduleDetail scheduleDetail;
+
 }

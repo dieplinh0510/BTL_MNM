@@ -20,4 +20,9 @@ public class SubjectController {
     return VsResponseUtil.ok(subjectService.getAllSubject());
   }
 
+  @GetMapping(UrlConstant.Subject.TIME_TABLE)
+  public ResponseEntity<?> getTimeTable() {
+    return VsResponseUtil.ok(subjectService.getTimeTable());
+  }
+
 }
