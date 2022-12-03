@@ -2,14 +2,14 @@ package com.hit.base_1.application.service.imp;
 
 import com.hit.base_1.application.dai.ScheduleDetailRepository;
 import com.hit.base_1.application.dai.ScheduleRepository;
+import com.hit.base_1.application.dai.StudentSubjectRepository;
 import com.hit.base_1.application.dai.SubjectRepository;
 import com.hit.base_1.application.output.GetTimeTableItemDetailOutput;
 import com.hit.base_1.application.output.GetTimeTableItemOutput;
 import com.hit.base_1.application.output.GetTimeTableOutput;
 import com.hit.base_1.application.service.SubjectService;
-import com.hit.base_1.domain.entity.Schedule;
-import com.hit.base_1.domain.entity.ScheduleDetail;
-import com.hit.base_1.domain.entity.Subject;
+import com.hit.base_1.application.utils.SecurityUtil;
+import com.hit.base_1.domain.entity.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,12 +20,15 @@ public class SubjectServiceImp implements SubjectService {
   private final SubjectRepository subjectRepository;
   private final ScheduleRepository scheduleRepository;
   private final ScheduleDetailRepository scheduleDetailRepository;
+  private final StudentSubjectRepository studentSubjectRepository;
 
   public SubjectServiceImp(SubjectRepository subjectRepository, ScheduleRepository scheduleRepository,
-                           ScheduleDetailRepository scheduleDetailRepository) {
+                           ScheduleDetailRepository scheduleDetailRepository,
+                           StudentSubjectRepository studentSubjectRepository) {
     this.subjectRepository = subjectRepository;
     this.scheduleRepository = scheduleRepository;
     this.scheduleDetailRepository = scheduleDetailRepository;
+    this.studentSubjectRepository = studentSubjectRepository;
   }
 
   @Override
@@ -67,5 +70,26 @@ public class SubjectServiceImp implements SubjectService {
     }
 
     return new GetTimeTableOutput(items);
+  }
+
+  @Override
+  public List<Subject> getAllSubjectByUserLogin() {
+    String id = SecurityUtil.getCurrentUserLogin();
+    try {
+      Long.parseLong(id);
+    } catch (Exception ex) {
+      return null;
+    }
+    List<StudentSubject> studentSubjectList = studentSubjectRepository.findAllByStudent_Id(Long.parseLong(id));
+    List<Subject> subjects = new ArrayList<>();
+    for (StudentSubject s : studentSubjectList) {
+      subjects.add(s.getSubject());
+    }
+    return subjects;
+  }
+
+  @Override
+  public List<Student> getAllStudentBySubjectId(Long subjectId) {
+    return null;
   }
 }

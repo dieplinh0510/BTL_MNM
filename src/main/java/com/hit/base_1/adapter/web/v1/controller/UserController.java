@@ -24,46 +24,48 @@ import javax.validation.Valid;
 @RestApiV1
 public class UserController {
 
-    private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
-    private final UserService userService;
+  private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
+  private final UserService userService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
 
-    @GetMapping(UrlConstant.User.GET_USER_DATA)
-    public ResponseEntity<?> getAllUser(@Valid GetListUserParameter parameter) {
-        //create input
-        GetAllUserDataInput input = new GetAllUserDataInput(parameter.getPage());
+  @GetMapping(UrlConstant.User.GET_USER_DATA)
+  public ResponseEntity<?> getAllUser(@Valid GetListUserParameter parameter) {
+    //create input
+    GetAllUserDataInput input = new GetAllUserDataInput(parameter.getPage());
 
-        //Get output
-        GetListUserDataOutput output = userService.getAllUser(input);
+    //Get output
+    GetListUserDataOutput output = userService.getAllUser(input);
 
-        //Return output
-        return VsResponseUtil.ok(output);
-    }
+    //Return output
+    return VsResponseUtil.ok(output);
+  }
 
-    @GetMapping(UrlConstant.User.GET_USER_ID_DATA)
-    public ResponseEntity<?> getUserById(@PathVariable("id") Long id) {
-        GetUserByIdDataInput input = new GetUserByIdDataInput(id);
+  // Lấy thông tin của 1 user
+  @GetMapping(UrlConstant.User.GET_USER_ID_DATA)
+  public ResponseEntity<?> getUserById(@PathVariable("id") Long id) {
+    GetUserByIdDataInput input = new GetUserByIdDataInput(id);
 
-        GetUserDataOutput output = userService.getUserById(input);
+    GetUserDataOutput output = userService.getUserById(input);
 
-        return VsResponseUtil.ok(output);
-    }
+    return VsResponseUtil.ok(output);
+  }
 
-    @PostMapping(UrlConstant.User.CREATE_USER)
-    public ResponseEntity<?> createUser(@RequestBody UserDTO userDTO) {
-        CreateUserDataInput input = userMapper.userDTOToCreateUserDataInput(userDTO);
+  @PostMapping(UrlConstant.User.CREATE_USER)
+  public ResponseEntity<?> createUser(@RequestBody UserDTO userDTO) {
+    CreateUserDataInput input = userMapper.userDTOToCreateUserDataInput(userDTO);
 
-        GetUserDataOutput output = userService.creatUser(input);
+    GetUserDataOutput output = userService.creatUser(input);
 
-        return VsResponseUtil.ok(output);
-    }
+    return VsResponseUtil.ok(output);
+  }
 
-    @GetMapping(UrlConstant.User.CURRENT_LOGIN)
-    public ResponseEntity<?> getUserLogin() {
-        return VsResponseUtil.ok(userService.getUserLogin());
-    }
+  // Lấy thông tin user đang login
+  @GetMapping(UrlConstant.User.CURRENT_LOGIN)
+  public ResponseEntity<?> getUserLogin() {
+    return VsResponseUtil.ok(userService.getUserLogin());
+  }
 
 }

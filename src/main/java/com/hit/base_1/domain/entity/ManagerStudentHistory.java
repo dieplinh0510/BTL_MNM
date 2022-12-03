@@ -26,7 +26,7 @@ public class ManagerStudentHistory extends AbstractAuditingEntity {
   private boolean flag;
 
   public ManagerStudentHistory(ManagerStudentHistoryDto dto) {
-    this.studentId = dto.getStudentId();
+    this.studentId = dto.getStudentCode();
     this.subjectId = dto.getSubjectId();
     this.flag = dto.isFlag();
   }

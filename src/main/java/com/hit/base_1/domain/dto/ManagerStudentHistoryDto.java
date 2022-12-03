@@ -11,10 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ManagerStudentHistoryDto {
 
-  private String studentId;
+  private String studentCode;
 
   private String subjectId;
 
-  private boolean flag;
+  private boolean flag; // True - vao / False - ra
 
 }

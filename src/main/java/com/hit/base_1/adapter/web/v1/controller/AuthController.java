@@ -17,6 +17,7 @@ public class AuthController {
     this.authService = authService;
   }
 
+  // API login
   @PostMapping(UrlConstant.Auth.LOGIN)
   public ResponseEntity<?> login(@RequestBody AuthenticationRequest request) {
     return VsResponseUtil.ok(authService.login(request));

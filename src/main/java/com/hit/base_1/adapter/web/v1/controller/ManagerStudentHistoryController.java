@@ -17,6 +17,7 @@ public class ManagerStudentHistoryController {
     this.managerStudentHistoryService = managerStudentHistoryService;
   }
 
+  // API bên Hùng gọi để lưu lại thông tin
   @PostMapping(UrlConstant.Log.SAVE)
   public ResponseEntity<?> saveLog(@RequestBody ManagerStudentHistoryDto dto) {
     return VsResponseUtil.ok(managerStudentHistoryService.save(dto));
