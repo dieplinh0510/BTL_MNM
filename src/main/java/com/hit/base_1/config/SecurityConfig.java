@@ -16,11 +16,6 @@ import org.springframework.web.cors.CorsConfiguration;
     jsr250Enabled = true)
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-  private final PasswordEncoder passwordEncoder;
-
-  public SecurityConfig(PasswordEncoder passwordEncoder) {
-    this.passwordEncoder = passwordEncoder;
-  }
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
