@@ -13,7 +13,7 @@ public class ManagerStudentHistoryDto {
 
   private String studentCode;
 
-  private String subjectId;
+  private Long subjectId;
 
   private boolean flag; // True - vao / False - ra
 

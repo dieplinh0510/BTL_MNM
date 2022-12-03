@@ -21,7 +21,7 @@ public class ManagerStudentHistory extends AbstractAuditingEntity {
 
   private String studentId;
 
-  private String subjectId;
+  private Long subjectId;
 
   private boolean flag;
 
