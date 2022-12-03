@@ -13,6 +13,7 @@ public class UrlConstant {
     public static final String GET_USER_DATA = PREFIX;
     public static final String GET_USER_ID_DATA = PREFIX + "/{id}";
     public static final String CREATE_USER = PREFIX;
+    public static final String CURRENT_LOGIN = PREFIX + "/current-login";
   }
 
   public static final class Auth {

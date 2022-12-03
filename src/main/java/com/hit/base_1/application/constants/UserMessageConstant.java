@@ -13,5 +13,6 @@ public class UserMessageConstant {
 
     public static final String INVALID_DATA_PAGE_MIN = "invalid.data.page.min";
     public static final String INVALID_DATA_ID = "invalid.data.id.min";
+    public static final String ERR_EXCEPTION_ACCESS_SYSTEM = "access.denied";
 
 }

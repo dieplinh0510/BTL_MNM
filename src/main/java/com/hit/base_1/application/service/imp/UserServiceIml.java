@@ -3,15 +3,19 @@ package com.hit.base_1.application.service.imp;
 import com.hit.base_1.application.constants.CommonConstant;
 import com.hit.base_1.application.constants.DevMessageConstant;
 import com.hit.base_1.application.constants.UserMessageConstant;
+import com.hit.base_1.application.dai.StudentRepository;
 import com.hit.base_1.application.dai.UserRepository;
 import com.hit.base_1.application.input.CreateUserDataInput;
 import com.hit.base_1.application.input.GetAllUserDataInput;
 import com.hit.base_1.application.input.GetUserByIdDataInput;
 import com.hit.base_1.application.mapper.UserMapper;
+import com.hit.base_1.application.output.GetCurrentUserLoginOutput;
 import com.hit.base_1.application.output.GetListUserDataOutput;
 import com.hit.base_1.application.output.GetUserDataOutput;
 import com.hit.base_1.application.service.UserService;
+import com.hit.base_1.application.utils.SecurityUtil;
 import com.hit.base_1.config.exception.VsException;
+import com.hit.base_1.domain.entity.Student;
 import com.hit.base_1.domain.entity.User;
 import org.apache.commons.collections4.CollectionUtils;
 import org.mapstruct.factory.Mappers;
@@ -27,9 +31,11 @@ public class UserServiceIml implements UserService {
 
   private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
   private final UserRepository userRepository;
+  private final StudentRepository studentRepository;
 
-  public UserServiceIml(UserRepository userRepository) {
+  public UserServiceIml(UserRepository userRepository, StudentRepository studentRepository) {
     this.userRepository = userRepository;
+    this.studentRepository = studentRepository;
   }
 
   private User checkUserExists(Optional<User> user) {
@@ -60,6 +66,19 @@ public class UserServiceIml implements UserService {
   public GetUserDataOutput creatUser(CreateUserDataInput input) {
     //check gì ở đây thì check nhé :v
     return new GetUserDataOutput(userRepository.save(userMapper.createUserDataInputToUser(input)));
+  }
+
+  @Override
+  public GetCurrentUserLoginOutput getUserLogin() {
+    String id = SecurityUtil.getCurrentUserLogin();
+    try {
+      Long.parseLong(id);
+    } catch (Exception ex) {
+      return null;
+    }
+    Student user = studentRepository.findById(Long.parseLong(id)).get();
+    return new GetCurrentUserLoginOutput(user.getStudentId(), user.getFullName(), user.getAvatar(),
+        user.getStudentOfClass(), user.getMajor(), user.getDateOfBirth());
   }
 
 }

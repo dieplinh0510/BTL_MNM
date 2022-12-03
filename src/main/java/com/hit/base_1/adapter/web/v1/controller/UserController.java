@@ -61,4 +61,9 @@ public class UserController {
         return VsResponseUtil.ok(output);
     }
 
+    @GetMapping(UrlConstant.User.CURRENT_LOGIN)
+    public ResponseEntity<?> getUserLogin() {
+        return VsResponseUtil.ok(userService.getUserLogin());
+    }
+
 }
