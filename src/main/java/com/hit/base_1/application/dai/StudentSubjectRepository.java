@@ -13,4 +13,7 @@ public interface StudentSubjectRepository extends JpaRepository<StudentSubject, 
   @Query("select s from StudentSubject s where s.student.id = ?1")
   List<StudentSubject> findAllByStudent_Id(Long id);
 
+  @Query("select s from StudentSubject s where s.subject.id = ?1")
+  List<StudentSubject> findAllBySubject_Id(Long id);
+
 }

@@ -13,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 public class GetTimeTableItemOutput {
 
+  private Long subjectId;
+
   private String subjectName;
 
   private String room;

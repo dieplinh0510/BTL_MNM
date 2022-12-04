@@ -29,6 +29,12 @@ public class SubjectController {
     return VsResponseUtil.ok(subjectService.getTimeTable());
   }
 
+  // API get data màn time table
+  @GetMapping(UrlConstant.Subject.TIME_TABLE_DETAIL)
+  public ResponseEntity<?> getTimeTableDetail(@PathVariable("subjectId") Long subjectId) {
+    return VsResponseUtil.ok(subjectService.getTimeTableDetail(subjectId));
+  }
+
 
   // API lấy tất cả lớp học bởi user login
   @GetMapping(UrlConstant.Subject.LIST_STUDENT)
@@ -36,11 +42,17 @@ public class SubjectController {
     return VsResponseUtil.ok(subjectService.getAllSubjectByUserLogin());
   }
 
-
   // API lấy hết user của 1 lớp học
   @GetMapping(UrlConstant.Subject.LIST_STUDENT_IN_SUBJECT)
   public ResponseEntity<?> getAllUserBySubjectId(@PathVariable("subjectId") Long subjectId) {
     return VsResponseUtil.ok(subjectService.getAllStudentBySubjectId(subjectId));
+  }
+
+  // API get màn detail của student trong 1 subject
+  @GetMapping(UrlConstant.Subject.DETAIL_STUDENT)
+  public ResponseEntity<?> getDetailStudentInSubject(@PathVariable("subjectId") Long subjectId,
+                                                     @PathVariable("studentCode") String studentCode) {
+    return VsResponseUtil.ok(subjectService.getDetailInfoStudent(subjectId,studentCode));
   }
 
 }

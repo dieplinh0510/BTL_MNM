@@ -31,8 +31,10 @@ public class UrlConstant {
     private static final String PREFIX = "/subjects";
     public static final String LIST = PREFIX;
     public static final String TIME_TABLE = PREFIX + "/time-table";
+    public static final String TIME_TABLE_DETAIL = PREFIX + "/time-table-detail/{subjectId}";
     public static final String LIST_STUDENT = PREFIX + "/students";
     public static final String LIST_STUDENT_IN_SUBJECT = PREFIX + "/students/{subjectId}";
+    public static final String DETAIL_STUDENT = PREFIX + "/students/{subjectId}/{studentCode}";
   }
 
   public static final class Log {
