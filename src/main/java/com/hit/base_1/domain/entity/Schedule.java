@@ -33,4 +33,10 @@ public class Schedule extends AbstractAuditingEntity {
 
   private String room;
 
+  public Schedule(Subject subject, Date date, String address, String room) {
+    this.subject = subject;
+    this.date = date;
+    this.address = address;
+    this.room = room;
+  }
 }

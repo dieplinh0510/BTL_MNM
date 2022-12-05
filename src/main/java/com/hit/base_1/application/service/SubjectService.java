@@ -4,6 +4,7 @@ import com.hit.base_1.application.output.GetDetailStudentInfoOutput;
 import com.hit.base_1.application.output.GetTimeTableItemDetailOutput;
 import com.hit.base_1.application.output.GetTimeTableItemOutput;
 import com.hit.base_1.application.output.GetTimeTableOutput;
+import com.hit.base_1.domain.dto.SubjectDto;
 import com.hit.base_1.domain.entity.Student;
 import com.hit.base_1.domain.entity.Subject;
 
@@ -23,4 +24,5 @@ public interface SubjectService {
 
   GetDetailStudentInfoOutput getDetailInfoStudent(Long subjectId, String studentCode);
 
+  Subject createNewSubject(SubjectDto dto);
 }

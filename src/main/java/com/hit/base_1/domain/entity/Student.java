@@ -36,4 +36,12 @@ public class Student extends AbstractAuditingEntity {
 
     private String dateOfBirth;
 
+    public Student(String fullName, String major, String studentCode, String studentOfClass, String dateOfBirth) {
+        this.fullName = fullName;
+        this.major = major;
+        this.studentId = studentCode;
+        this.studentOfClass = studentOfClass;
+        this.dateOfBirth = dateOfBirth;
+    }
+
 }

@@ -7,6 +7,7 @@ import com.hit.base_1.application.output.GetTimeTableItemOutput;
 import com.hit.base_1.application.output.GetTimeTableOutput;
 import com.hit.base_1.application.service.SubjectService;
 import com.hit.base_1.application.utils.SecurityUtil;
+import com.hit.base_1.domain.dto.SubjectDto;
 import com.hit.base_1.domain.entity.*;
 import org.springframework.stereotype.Service;
 
@@ -175,6 +176,12 @@ public class SubjectServiceImp implements SubjectService {
 
   public int getRandomNumber(int min, int max) {
     return (int) ((Math.random() * (max - min)) + min);
+  }
+
+  @Override
+  public Subject createNewSubject(SubjectDto dto) {
+    return subjectRepository.save(new Subject(dto.getName(), dto.getNumberOfUnit(), dto.getStartTime(),
+        dto.getEndTime(), dto.getPercents()));
   }
 
 }

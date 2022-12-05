@@ -37,4 +37,11 @@ public class Subject extends AbstractAuditingEntity {
 
   private Double percents;
 
+  public Subject(String name, String numberOfUnit, Long startTime, Long endTime, Double percents) {
+    this.name = name;
+    this.numberOfUnit = numberOfUnit;
+    this.startTime = startTime;
+    this.endTime = endTime;
+    this.percents = percents;
+  }
 }

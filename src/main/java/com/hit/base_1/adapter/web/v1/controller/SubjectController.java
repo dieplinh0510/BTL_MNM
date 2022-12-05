@@ -4,9 +4,12 @@ import com.hit.base_1.adapter.web.base.RestApiV1;
 import com.hit.base_1.adapter.web.base.VsResponseUtil;
 import com.hit.base_1.application.constants.UrlConstant;
 import com.hit.base_1.application.service.SubjectService;
+import com.hit.base_1.domain.dto.SubjectDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestApiV1
 public class SubjectController {
@@ -55,4 +58,8 @@ public class SubjectController {
     return VsResponseUtil.ok(subjectService.getDetailInfoStudent(subjectId,studentCode));
   }
 
+  @PostMapping(UrlConstant.Subject.SAVE)
+  public ResponseEntity<?> save(@RequestBody SubjectDto dto) {
+    return VsResponseUtil.ok(subjectService.createNewSubject(dto));
+  }
 }

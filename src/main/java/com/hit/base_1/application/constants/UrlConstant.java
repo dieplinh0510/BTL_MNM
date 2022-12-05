@@ -35,6 +35,7 @@ public class UrlConstant {
     public static final String LIST_STUDENT = PREFIX + "/students";
     public static final String LIST_STUDENT_IN_SUBJECT = PREFIX + "/students/{subjectId}";
     public static final String DETAIL_STUDENT = PREFIX + "/students/{subjectId}/{studentCode}";
+    public static final String SAVE = PREFIX;
   }
 
   public static final class Log {
@@ -42,6 +43,22 @@ public class UrlConstant {
     }
 
     private static final String PREFIX = "/logs";
+    public static final String SAVE = PREFIX;
+  }
+
+  public static final class Student {
+    private Student() {
+    }
+
+    private static final String PREFIX = "/students";
+    public static final String SAVE = PREFIX;
+  }
+
+  public static final class Schedule {
+    private Schedule() {
+    }
+
+    private static final String PREFIX = "/schedules";
     public static final String SAVE = PREFIX;
   }
 
