@@ -62,4 +62,12 @@ public class UrlConstant {
     public static final String SAVE = PREFIX;
   }
 
+  public static final class Date {
+    private Date() {
+    }
+
+    private static final String PREFIX = "/dates";
+    public static final String SAVE = PREFIX;
+  }
+
 }
