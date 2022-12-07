@@ -13,8 +13,6 @@ public class GetAuthenticationOutput {
 
   private String username;
 
-  private Long studentId;
-
-  private String jwt;
+  private Long id;
 
 }
