@@ -32,6 +32,6 @@ public class AuthServiceImp implements AuthService {
     if (!passwordEncoder.matches(input.getPassword(), user.getPassword())) {
       throw new InvalidException("", "Invalid password");
     }
-    return new GetAuthenticationOutput(jwtUtil.generateToken(user), user.getId());
+    return new GetAuthenticationOutput(user.getUsername(), user.getId(), jwtUtil.generateToken(user));
   }
 }

@@ -11,8 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class GetAuthenticationOutput {
 
-  private String jwt;
+  private String username;
 
   private Long studentId;
+
+  private String jwt;
 
 }
