@@ -27,10 +27,10 @@ public class AuthServiceImp implements AuthService {
     User user = userRepository.findByUsername(input.getUsername());
 
     if (user == null) {
-      throw new InvalidException("", "Invalid username");
+      throw new InvalidException("invalid.general", "Invalid username");
     }
     if (!passwordEncoder.matches(input.getPassword(), user.getPassword())) {
-      throw new InvalidException("", "Invalid password");
+      throw new InvalidException("invalid.general", "Invalid password");
     }
     return new GetAuthenticationOutput(user.getUsername(), user.getId());
   }
